@@ -5,6 +5,7 @@
 #include "Artist.h"
 #include "Client.h"
 #include "Seller.h"
+#include "Sale.h"
 
 class Manager
 {
@@ -18,18 +19,24 @@ class Manager
         int artistCount;
         int clientCount;
         int sellerCount;
+        int salesCount;
+        int saleAutoIncrement;
         Artist artists[20];
         Album albums[20];
         Client clients[20];
         Seller sellers[20];
+        Sale sales[40];
         void albumMenu();
         void artistMenu();
         void clientMenu();
         void sellerMenu();
-        int searchSeller(int key);
-        int searchAlbum(int key);
-        int searchArtist(int key);
-        int searchClient(int key);
+        void salesMenu();
+        bool newSale();
+        int searchSeller(int);
+        int searchAlbum(int);
+        int searchArtist(int);
+        int searchClient(int);
+        int searchSale(int);
 };
 
 #endif // MANAGER_H

@@ -9,6 +9,8 @@ Manager::Manager()
     this->artistCount = 0;
     this->clientCount = 0;
     this->sellerCount = 0;
+    this->salesCount = 0;
+    this->saleAutoIncrement=0;
 }
 
 Manager::~Manager()
@@ -20,6 +22,18 @@ int Manager::searchSeller(int key)
     for(int i=0;i<this->sellerCount;i++)
     {
         if(this->artists[i].search(key))
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int Manager::searchSale(int key)
+{
+    for(int i=0; i<salesCount; i++)
+    {
+        if(this->sales[i].search(key))
         {
             return i;
         }
@@ -61,6 +75,118 @@ int Manager::searchClient(int key)
         }
     }
     return -1;
+}
+
+bool Manager::newSale()
+{
+    int album,seller,client,key;
+    system("cls");
+    cout << "Ingrese la clave del album de venta: ";
+    cin >> key;
+    if((album = this->searchAlbum(key))==-1)
+    {
+        cout << "No se encontro el album, intente de nuevo\n";
+        return false;
+    }
+    cout << "Ingrese la clave del vendedor: ";
+    cin >> key;
+    if((seller = this->searchSeller(key))==-1)
+    {
+        cout << "No se encontro al vendedor, intente de nuevo\n";
+        return false;
+    }
+    cout << "Ingrese la clave del cliente: ";
+    cin >> key;
+    if((client=this->searchClient(key))==-1)
+    {
+        cout << "No se encontro al cliente, intente de nuevo\n";
+        return false;
+    }
+    this->saleAutoIncrement ++;
+    sales[salesCount].capture(this->saleAutoIncrement,album,seller,client);
+    this->salesCount ++;
+    return true;
+}
+
+void Manager::salesMenu()
+{
+    char option;
+    do
+    {
+        cin.ignore();
+        system("cls");
+        cout << "Bienvenido al panel de control de ventas, seleccione la opción correspondiente:"<<endl;
+        cout << "0.-Nueva venta\n1.-Listar ventas\n2.-Buscar y ver detalles\n3.-Modificar\n4.-Eliminar\n5.-Salir\nSu seleccion: ";
+        cin >> option;
+        system("cls");
+        switch(option)
+        {
+            case '0':
+            {
+                this->newSale();
+                break;
+            }
+            case '1':
+            {
+                cout << ((this->salesCount == 0)? "Vacio\n" : "Ventas:\n");
+                for(int i=0; i<this->salesCount; i++)
+                {
+                    this->sales[i].show();
+                    cout << "-----------------------------------------------------"<<endl;
+                }
+                break;
+            }
+            case '2':
+            {
+                int key;
+                cout << "Ingrese la clave de la venta: ";
+                cin >> key;
+                int pos = this->searchSale(key);
+                if(pos!=-1)
+                {
+                    cout << "Venta encontrada! \n";
+                    this->sales[pos].show();
+                }
+                else
+                {
+                    cout << "No se encontro la venta :(\n";
+                }
+                break;
+            }
+            case '3':
+            {
+                cout << "Si desea modificar una venta, eliminela y vuelvala a capturar con los datos correctos";
+                break;
+            }
+            case '4':
+            {
+                int key;
+                cout << "Ingrese la clave de la venta: ";
+                cin >> key;
+                int pos = this->searchSale(key);
+                if(pos!=-1)
+                {
+                    for(int i=pos; i<this->salesCount-1; i++)
+                    {
+                        this->sales[i] = this->sales[i+1];
+                    }
+                    cout << "Venta eliminada :( \n";
+                    this->salesCount--;
+
+                }
+                else
+                {
+                    cout << "No se encontro la venta :(\n";
+                }
+                break;
+            }
+            case '5':
+                return;
+            default:
+                cout << "Seleccione una opcion valida\n";
+        }
+        system("pause");
+    }while(option!='5');
 }
 
 void Manager::clientMenu()

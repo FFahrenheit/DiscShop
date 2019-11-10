@@ -3,11 +3,12 @@
 	<iostream>
 	"Manager.h"
 
-1573361456 c:\users\ivan_\desktop\discshop\include\manager.h
+1573364013 c:\users\ivan_\desktop\discshop\include\manager.h
 	"Album.h"
 	"Artist.h"
 	"Client.h"
 	"Seller.h"
+	"Sale.h"
 
 1573262037 c:\users\ivan_\desktop\discshop\include\album.h
 	<iostream>
@@ -41,4 +42,11 @@
 1573359745 source:c:\users\ivan_\desktop\discshop\src\seller.cpp
 	<iostream>
 	"Seller.h"
+
+1573363328 c:\users\ivan_\desktop\discshop\include\sale.h
+	<iostream>
+
+1573364020 source:c:\users\ivan_\desktop\discshop\src\sale.cpp
+	"Sale.h"
+	<iostream>
 
