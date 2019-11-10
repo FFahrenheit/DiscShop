@@ -36,11 +36,19 @@
 		</Compiler>
 		<Unit filename="include/Album.h" />
 		<Unit filename="include/Artist.h" />
+		<Unit filename="include/Client.h" />
 		<Unit filename="include/Manager.h" />
+		<Unit filename="include/Sale.h" />
+		<Unit filename="include/Seller.h" />
+		<Unit filename="include/Single.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Album.cpp" />
 		<Unit filename="src/Artist.cpp" />
+		<Unit filename="src/Client.cpp" />
 		<Unit filename="src/Manager.cpp" />
+		<Unit filename="src/Sale.cpp" />
+		<Unit filename="src/Seller.cpp" />
+		<Unit filename="src/Single.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

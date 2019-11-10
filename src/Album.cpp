@@ -72,13 +72,13 @@ void Album::capture(int code)
     getline(cin,this->name);
     cout << "Ingrese el numero de codigo de artista: ";
     cin >> this->artistCode;
-    cout << "Ingrese el genero del album: ";
+    cout << "Ingrese el genero: ";
     cin.ignore();
     getline(cin,this->genre);
-    cout << "Ingrese el precio del album: ";
+    cout << "Ingrese el precio: ";
     cin >> this->price;
-    cout << "Ingrese el lanzamiento del album: ";
+    cout << "Ingrese el lanzamiento: ";
     cin >> this->year;
-    cout << endl << "Album agreado!"<<endl;
+    cout << endl << "Agreado!"<<endl;
     this->show();
 }

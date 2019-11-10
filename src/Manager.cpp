@@ -10,11 +10,24 @@ Manager::Manager()
     this->clientCount = 0;
     this->sellerCount = 0;
     this->salesCount = 0;
+    this->singlesCount = 0;
     this->saleAutoIncrement=0;
 }
 
 Manager::~Manager()
 {
+}
+
+int Manager::searchSingle(int key)
+{
+    for(int i=0; i<this->singlesCount;i++)
+    {
+        if(this->singles[i].search(key))
+        {
+            return i;
+        }
+    }
+    return -1;
 }
 
 int Manager::searchSeller(int key)
@@ -81,12 +94,15 @@ bool Manager::newSale()
 {
     int album,seller,client,key;
     system("cls");
-    cout << "Ingrese la clave del album de venta: ";
+    cout << "Ingrese la clave del album o single de venta: ";
     cin >> key;
     if((album = this->searchAlbum(key))==-1)
     {
-        cout << "No se encontro el album, intente de nuevo\n";
-        return false;
+        if(album = this->searchSingle(key)==-1)
+        {
+            cout << "No se encontro el album o single, intente de nuevo\n";
+            return false;
+        }
     }
     cout << "Ingrese la clave del vendedor: ";
     cin >> key;
@@ -155,7 +171,7 @@ void Manager::salesMenu()
             }
             case '3':
             {
-                cout << "Si desea modificar una venta, eliminela y vuelvala a capturar con los datos correctos";
+                cout << "Nuestro sistema de ventas es delicado\nSi desea modificar una venta, eliminela y vuelvala a capturar con los datos correctos";
                 break;
             }
             case '4':
@@ -296,7 +312,7 @@ void Manager::clientMenu()
 
 void Manager::artistMenu()
 {
-        char option;
+    char option;
     do
     {
         cin.ignore();
@@ -609,6 +625,111 @@ void Manager::albumMenu()
     }while(option!='5');
 }
 
+void Manager::singleMenu()
+{
+    char option;
+    do
+    {
+        cin.ignore();
+        system("cls");
+        cout << "Bienvenido al panel de control de singles, seleccione la opción correspondiente:"<<endl;
+        cout << "0.-Nuevo single\n1.-Listar singles\n2.-Buscar y ver detalles\n3.-Modificar\n4.-Eliminar\n5.-Salir\nSu seleccion: ";
+        cin >> option;
+        system("cls");
+        switch(option)
+        {
+            case '0':
+            {
+                int code;
+                cout << "Ingrese el codigo para el single: ";
+                cin >> code;
+                int pos = this->searchSingle(code);
+                if(pos == -1)
+                {
+                    this->singles[singlesCount].capture(code);
+                    this->singlesCount++;
+                }
+                else
+                {
+                    cout << "Error! Codigo repetido\n";
+                }
+                break;
+            }
+            case '1':
+            {
+                cout << ((this->singlesCount == 0)? "Vacio\n" : "Albums:\n");
+                for(int i=0; i<this->singlesCount; i++)
+                {
+                    this->singles[i].show();
+                    cout << "-----------------------------------------------------"<<endl;
+                }
+                break;
+            }
+            case '2':
+            {
+                int key;
+                cout << "Ingrese la clave del single: ";
+                cin >> key;
+                int pos = this->searchSingle(key);
+                if(pos!=-1)
+                {
+                    cout << "Single encontrado! \n";
+                    this->singles[pos].show();
+                }
+                else
+                {
+                    cout << "No se encontro el single :(\n";
+                }
+                break;
+            }
+            case '3':
+            {
+                int key;
+                cout << "Ingrese la clave del single: ";
+                cin >> key;
+                int pos = this->searchSingle(key);
+                if(pos!=-1)
+                {
+                    cout << "Single encontrado! \n";
+                    this->singles[pos].modify();
+                }
+                else
+                {
+                    cout << "No se encontro el single :(\n";
+                }
+                break;
+            }
+            case '4':
+            {
+                int key;
+                cout << "Ingrese la clave del single: ";
+                cin >> key;
+                int pos = this->searchSingle(key);
+                if(pos!=-1)
+                {
+                    for(int i=pos; i<this->singlesCount-1; i++)
+                    {
+                        this->singles[i] = this->singles[i+1];
+                    }
+                    cout << "Single eliminado :( \n";
+                    this->singlesCount--;
+
+                }
+                else
+                {
+                    cout << "No se encontro el single :(\n";
+                }
+                break;
+            }
+            case '5':
+                return;
+            default:
+                cout << "Seleccione una opcion valida\n";
+        }
+        system("pause");
+    }while(option!='5');
+}
+
 void Manager::menu()
 {
     char option;
@@ -616,7 +737,7 @@ void Manager::menu()
     {
         system("cls");
         cout << "Bienvenido al sistema de disquera, Que desea hacer hoy?\n";
-        cout << "Administrar:\n1.-Albums\n2.-Artistas\n3.-Vendedores\n4.-Clientes\n5.-Ventas\n6.-Salir\nSu seleccion:";
+        cout << "Administrar:\n1.-Albums\n2.-Artistas\n3.-Vendedores\n4.-Clientes\n5.-Ventas\n6.-Singles\n7.-Salir\nSu seleccion:";
         cin >> option;
         switch(option)
         {
@@ -635,7 +756,7 @@ void Manager::menu()
         case '6':
             break;
         default:
-            cout << "Aun no lo hago diskulp";
+            break;
         }
     }while(option!= '6');
 }
