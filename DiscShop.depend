@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1573255042 source:c:\users\ivan_\desktop\discshop\main.cpp
+	<iostream>
+	"Manager.h"
+
+1573358206 c:\users\ivan_\desktop\discshop\include\manager.h
+	"Album.h"
+	"Artist.h"
+	"Client.h"
+
+1573262037 c:\users\ivan_\desktop\discshop\include\album.h
+	<iostream>
+
+1573354854 source:c:\users\ivan_\desktop\discshop\src\album.cpp
+	<iostream>
+	<string>
+	"Album.h"
+
+1573356799 source:c:\users\ivan_\desktop\discshop\src\manager.cpp
+	"Manager.h"
+	<iostream>
+
+1573355115 c:\users\ivan_\desktop\discshop\include\artist.h
+	<iostream>
+
+1573356517 source:c:\users\ivan_\desktop\discshop\src\artist.cpp
+	"Artist.h"
+	<iostream>
+
+1573357336 c:\users\ivan_\desktop\discshop\include\client.h
+	<iostream>
+
+1573358239 source:c:\users\ivan_\desktop\discshop\src\client.cpp
+	"Client.h"
+	<iostream>
+
