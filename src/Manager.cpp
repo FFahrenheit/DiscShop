@@ -8,10 +8,23 @@ Manager::Manager()
     this->albumCount = 0;
     this->artistCount = 0;
     this->clientCount = 0;
+    this->sellerCount = 0;
 }
 
 Manager::~Manager()
 {
+}
+
+int Manager::searchSeller(int key)
+{
+    for(int i=0;i<this->sellerCount;i++)
+    {
+        if(this->artists[i].search(key))
+        {
+            return i;
+        }
+    }
+    return -1;
 }
 
 int Manager::searchArtist(int key)
@@ -260,6 +273,111 @@ void Manager::artistMenu()
     }while(option!='5');
 }
 
+void Manager::sellerMenu()
+{
+    char option;
+    do
+    {
+        cin.ignore();
+        system("cls");
+        cout << "Bienvenido al panel de control de vendores, seleccione la opción correspondiente:"<<endl;
+        cout << "0.-Nuevo vendedor\n1.-Listar vendedores\n2.-Buscar y ver detalles\n3.-Modificar\n4.-Eliminar\n5.-Salir\nSu seleccion: ";
+        cin >> option;
+        system("cls");
+        switch(option)
+        {
+            case '0':
+            {
+                int code;
+                cout << "Ingrese el codigo para el vendedor: ";
+                cin >> code;
+                int pos = this->searchSeller(code);
+                if(pos == -1)
+                {
+                    this->sellers[sellerCount].capture(code);
+                    this->sellerCount++;
+                }
+                else
+                {
+                    cout << "Error! Codigo repetido\n";
+                }
+                break;
+            }
+            case '1':
+            {
+                cout << ((this->albumCount == 0)? "Vacio\n" : "Vendedores:\n");
+                for(int i=0; i<this->sellerCount; i++)
+                {
+                    this->sellers[i].show();
+                    cout << "-----------------------------------------------------"<<endl;
+                }
+                break;
+            }
+            case '2':
+            {
+                int key;
+                cout << "Ingrese la clave del vendedor: ";
+                cin >> key;
+                int pos = this->searchSeller(key);
+                if(pos!=-1)
+                {
+                    cout << "Vendedor encontrado! \n";
+                    this->sellers[pos].show();
+                }
+                else
+                {
+                    cout << "No se encontro el vendedor :(\n";
+                }
+                break;
+            }
+            case '3':
+            {
+                int key;
+                cout << "Ingrese la clave del vendedor: ";
+                cin >> key;
+                int pos = this->searchSeller(key);
+                if(pos!=-1)
+                {
+                    cout << "Vendedor encontrado! \n";
+                    this->sellers[pos].modify();
+                }
+                else
+                {
+                    cout << "No se encontro el vendedor :(\n";
+                }
+                break;
+            }
+            case '4':
+            {
+                int key;
+                cout << "Ingrese la clave del vendedor: ";
+                cin >> key;
+                int pos = this->searchSeller(key);
+                if(pos!=-1)
+                {
+                    for(int i=pos; i<this->sellerCount-1; i++)
+                    {
+                        this->sellers[i] = this->sellers[i+1];
+                    }
+                    cout << "Vendedor eliminado :( \n";
+                    this->albumCount--;
+
+                }
+                else
+                {
+                    cout << "No se encontro el vendedor :(\n";
+                }
+                break;
+            }
+            case '5':
+                return;
+            default:
+                cout << "Seleccione una opcion valida\n";
+        }
+        system("pause");
+    }while(option!='5');
+}
+
 void Manager::albumMenu()
 {
     char option;
@@ -384,6 +502,10 @@ void Manager::menu()
             break;
         case '3':
             this->clientMenu();
+            break;
+        case '4':
+            this->sellerMenu();
+            break;
         case '6':
             break;
         default:

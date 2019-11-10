@@ -40,7 +40,7 @@ void Client::capture(int code)
 
 void Client::modify()
 {
-        char option;
+    char option;
     cout << "Que desea modificar?\n0.-Nombre\n1.-Clave\n2.-Direccion\n3.-Telefono\nSu eleccion: ";
     cin >> option;
     system("cls");
@@ -58,7 +58,7 @@ void Client::modify()
             getline(cin,this->address);
             break;
         case '3':
-            cin >> phone;
+            cin >> this->phone;
             break;
         default:
             return;
