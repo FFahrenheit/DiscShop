@@ -6,8 +6,8 @@
 class Seller
 {
     public:
-        Seller();
-        virtual ~Seller();
+        Seller() = default;
+        ~Seller() = default;
         bool search(int);
         void show();
         void capture(int);

@@ -6,8 +6,8 @@
 class Album
 {
     public:
-        Album();
-        virtual ~Album();
+        Album() = default;
+        ~Album() = default;
         bool search(int);
         void show();
         void capture(int);

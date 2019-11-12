@@ -3,14 +3,6 @@
 
 using namespace std;
 
-Artist::Artist()
-{
-}
-
-Artist::~Artist()
-{
-}
-
 void Artist::show()
 {
     cout << "Clave: "<<this->key << endl;

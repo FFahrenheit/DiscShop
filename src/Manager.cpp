@@ -14,10 +14,6 @@ Manager::Manager()
     this->saleAutoIncrement=0;
 }
 
-Manager::~Manager()
-{
-}
-
 int Manager::searchSingle(int key)
 {
     for(int i=0; i<this->singlesCount;i++)
@@ -657,7 +653,7 @@ void Manager::singleMenu()
             }
             case '1':
             {
-                cout << ((this->singlesCount == 0)? "Vacio\n" : "Albums:\n");
+                cout << ((this->singlesCount == 0)? "Vacio\n" : "Singles:\n");
                 for(int i=0; i<this->singlesCount; i++)
                 {
                     this->singles[i].show();
@@ -754,6 +750,7 @@ void Manager::menu()
             this->sellerMenu();
             break;
         case '6':
+            this->singleMenu();
             break;
         default:
             break;

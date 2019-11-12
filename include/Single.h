@@ -7,11 +7,14 @@
 class Single : public Album
 {
     public:
-        Single();
-        virtual ~Single();
+        Single() = default;
+        ~Single() = default;
+        virtual void show();
+        virtual void capture(int);
+        virtual void modify();
     protected:
-
     private:
+        int lenght;
 };
 
 #endif // SINGLE_HW

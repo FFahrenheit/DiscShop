@@ -6,8 +6,8 @@
 class Artist
 {
     public:
-        Artist();
-        virtual ~Artist();
+        Artist() = default;
+        ~Artist() = default;
         void show();
         bool search(int);
         void capture(int);

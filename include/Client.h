@@ -6,8 +6,8 @@
 class Client
 {
     public:
-        Client();
-        virtual ~Client();
+        Client() = default;
+        ~Client() = default;
         bool search(int);
         void show();
         void capture(int);

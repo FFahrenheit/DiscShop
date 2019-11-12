@@ -3,14 +3,6 @@
 
 using namespace std;
 
-Seller::Seller()
-{
-}
-
-Seller::~Seller()
-{
-}
-
 bool Seller::search(int code)
 {
     return this->key == code;

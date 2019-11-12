@@ -12,7 +12,7 @@ class Manager
 {
     public:
         Manager();
-        virtual ~Manager();
+        ~Manager() = default;
         void menu();
     protected:
     private:

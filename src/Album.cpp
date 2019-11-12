@@ -40,14 +40,6 @@ void Album::modify()
         this->show();
 }
 
-Album::Album()
-{
-}
-
-Album::~Album()
-{
-}
-
 bool Album::search(int code)
 {
     return code == this->key;

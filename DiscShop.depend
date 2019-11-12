@@ -3,50 +3,58 @@
 	<iostream>
 	"Manager.h"
 
-1573364013 c:\users\ivan_\desktop\discshop\include\manager.h
+1573520204 c:\users\ivan_\desktop\discshop\include\manager.h
 	"Album.h"
 	"Artist.h"
 	"Client.h"
 	"Seller.h"
+	"Single.h"
 	"Sale.h"
 
-1573262037 c:\users\ivan_\desktop\discshop\include\album.h
+1573519708 c:\users\ivan_\desktop\discshop\include\album.h
 	<iostream>
 
-1573354854 source:c:\users\ivan_\desktop\discshop\src\album.cpp
+1573519736 source:c:\users\ivan_\desktop\discshop\src\album.cpp
 	<iostream>
 	<string>
 	"Album.h"
 
-1573358310 source:c:\users\ivan_\desktop\discshop\src\manager.cpp
+1573414443 source:c:\users\ivan_\desktop\discshop\src\manager.cpp
 	"Manager.h"
 	<iostream>
 
-1573355115 c:\users\ivan_\desktop\discshop\include\artist.h
+1573520184 c:\users\ivan_\desktop\discshop\include\artist.h
 	<iostream>
 
 1573356517 source:c:\users\ivan_\desktop\discshop\src\artist.cpp
 	"Artist.h"
 	<iostream>
 
-1573357336 c:\users\ivan_\desktop\discshop\include\client.h
+1573520196 c:\users\ivan_\desktop\discshop\include\client.h
 	<iostream>
 
 1573359849 source:c:\users\ivan_\desktop\discshop\src\client.cpp
 	"Client.h"
 	<iostream>
 
-1573359168 c:\users\ivan_\desktop\discshop\include\seller.h
+1573520228 c:\users\ivan_\desktop\discshop\include\seller.h
 	<iostream>
 
 1573359745 source:c:\users\ivan_\desktop\discshop\src\seller.cpp
 	<iostream>
 	"Seller.h"
 
-1573363328 c:\users\ivan_\desktop\discshop\include\sale.h
+1573520216 c:\users\ivan_\desktop\discshop\include\sale.h
 	<iostream>
 
 1573364020 source:c:\users\ivan_\desktop\discshop\src\sale.cpp
 	"Sale.h"
+	<iostream>
+
+1573519998 c:\users\ivan_\desktop\discshop\include\single.h
+	<Album.h>
+
+1573520009 source:c:\users\ivan_\desktop\discshop\src\single.cpp
+	"Single.h"
 	<iostream>
 

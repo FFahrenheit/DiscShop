@@ -3,13 +3,6 @@
 
 using namespace std;
 
-Sale::Sale()
-{
-}
-
-Sale::~Sale()
-{
-}
 
 bool Sale::search(int code)
 {

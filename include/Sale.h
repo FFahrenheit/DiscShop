@@ -5,8 +5,8 @@
 class Sale
 {
     public:
-        Sale();
-        virtual ~Sale();
+        Sale() = default;
+        ~Sale() = default;
         void show();
         void capture(int, int, int, int);
         bool search(int);

@@ -3,14 +3,6 @@
 
 using namespace std;
 
-Client::Client()
-{
-}
-
-Client::~Client()
-{
-}
-
 void Client::show()
 {
     cout << "Codigo de cliente: " << this->key<<endl;
