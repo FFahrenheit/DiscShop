@@ -19,42 +19,42 @@
 	<string>
 	"Album.h"
 
-1573414443 source:c:\users\ivan_\desktop\discshop\src\manager.cpp
+1573520161 source:c:\users\ivan_\desktop\discshop\src\manager.cpp
 	"Manager.h"
 	<iostream>
 
 1573520184 c:\users\ivan_\desktop\discshop\include\artist.h
 	<iostream>
 
-1573356517 source:c:\users\ivan_\desktop\discshop\src\artist.cpp
+1573520155 source:c:\users\ivan_\desktop\discshop\src\artist.cpp
 	"Artist.h"
 	<iostream>
 
 1573520196 c:\users\ivan_\desktop\discshop\include\client.h
 	<iostream>
 
-1573359849 source:c:\users\ivan_\desktop\discshop\src\client.cpp
+1573520159 source:c:\users\ivan_\desktop\discshop\src\client.cpp
 	"Client.h"
 	<iostream>
 
 1573520228 c:\users\ivan_\desktop\discshop\include\seller.h
 	<iostream>
 
-1573359745 source:c:\users\ivan_\desktop\discshop\src\seller.cpp
+1573520165 source:c:\users\ivan_\desktop\discshop\src\seller.cpp
 	<iostream>
 	"Seller.h"
 
 1573520216 c:\users\ivan_\desktop\discshop\include\sale.h
 	<iostream>
 
-1573364020 source:c:\users\ivan_\desktop\discshop\src\sale.cpp
+1573520150 source:c:\users\ivan_\desktop\discshop\src\sale.cpp
 	"Sale.h"
 	<iostream>
 
 1573519998 c:\users\ivan_\desktop\discshop\include\single.h
 	<Album.h>
 
-1573520009 source:c:\users\ivan_\desktop\discshop\src\single.cpp
+1573520117 source:c:\users\ivan_\desktop\discshop\src\single.cpp
 	"Single.h"
 	<iostream>
 
